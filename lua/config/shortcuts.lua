@@ -27,5 +27,5 @@ vim.keymap.set("v", "<", "<gv")
 
 -- file finding
 -- fzf
-vim.keymap.set("n", "<leader>f", ":FZF --reverse --border double --ghost=Search --input-border sharp --no-info<CR>")
-vim.cmd([[let $FZF_DEFAULT_OPTS="--preview 'cat {}' --preview-border sharp --no-scrollbar"]])
+vim.keymap.set("n", "<leader>f", ":FZF<CR>")
+vim.cmd([[let $FZF_DEFAULT_OPTS="--preview 'less {}' --preview-border sharp --no-scrollbar --reverse --border double --ghost=Search --input-border sharp --no-info --preview-label=PREVIEW"]])
