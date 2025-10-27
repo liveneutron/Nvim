@@ -81,14 +81,20 @@ function get_git_branch()
     end
 end
 
+-- Nvim version function
+function get_nvim_version()
+    return vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch
+end
+
 local statusline = {
-    ' %#Search#%{v:lua.mode()}%#StatusLine# ',
-    '[%{%v:lua.get_git_branch()%}] ',
-    '%t',
-    ' %r',
-    '%=',
+    '%#Keyword#[%{v:lua.get_nvim_version()}]%#StatusLine# ',
+    '%#Keyword#%{v:lua.mode()}%#StatusLine# ',
     '%#Search# %{%v:lua.get_statusline_date()%} %#Statusline# ',
     '%#Search# %{%v:lua.get_statusline_time()%} %#Statusline#',
+    '%=',
+    '[%{%v:lua.get_git_branch()%}]',
+    ' %t',
+    ' %r',
     '%=',
     '[%{&filetype}]',
     '[%{%v:lua.file_size()%}] ',
