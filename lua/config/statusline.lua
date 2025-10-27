@@ -30,22 +30,22 @@ end
 
 _G.mode = mode
 
+-- function to get current date
+function _G.get_statusline_date()
+    return os.date('%d/%m/%y')
+end
+
 -- function to get current time
 function _G.get_statusline_time()
   return os.date('%I:%M:%S %p')
 end
 
--- function to get current date
-function _G.get_statusline_date()
-  return os.date('%d/%m/%y')
-end
-
---function to get file size
+--function to get file size of current buffer
 function _G.file_size()
   local buf = vim.api.nvim_get_current_buf()
   local path = vim.api.nvim_buf_get_name(buf)
 
-  -- Skip non‑file buffers (scratch, help, terminal, etc.)
+  -- Skip non‑file buffers
   if path == '' or vim.fn.filereadable(path) == 0 then
     return ''
   end
@@ -56,6 +56,7 @@ function _G.file_size()
   end
 
   local size = stat.size               -- bytes (integer)
+  -- unit conversion from bytes to human readable unit
   if size < 1024 then
     return string.format('%d B', size)
   elseif size < 1024 * 1024 then
@@ -67,9 +68,23 @@ function _G.file_size()
   end
 end
 
+-- Retrive git brach name
+function get_git_branch()
+    local handle = io.popen("git rev-parse --abbrev-ref HEAD 2> /dev/null")
+    local branch = handle:read("*a")
+    handle:close()
+
+    if branch ~= "" then
+        return branch:gsub("%s+", "") -- Trim whitespace
+    else
+        return ""
+    end
+end
+
 local statusline = {
     ' %#Search#%{v:lua.mode()}%#StatusLine# ',
-    '%t ',
+    '[%{%v:lua.get_git_branch()%}] ',
+    '%t',
     '%r',
     '%=',
     '%#Search# %{%v:lua.get_statusline_date()%} %#Statusline# ',
