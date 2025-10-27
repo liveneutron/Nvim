@@ -3,7 +3,7 @@ require("config.shortcuts")
 require("config.autocommands")
 require("config.statusline")
 require("config.terminal")
-vim.cmd("source ~/.config/nvim/lua/vim/netrw.vim")
-vim.cmd("source ~/.config/nvim/lua/vim/plugins.vim")
+require("plugins")
+vim.cmd("source ~/.config/nvim/vim/netrw.vim")
 
 
