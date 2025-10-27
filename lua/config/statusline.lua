@@ -37,7 +37,7 @@ end
 
 -- function to get current time
 function _G.get_statusline_time()
-  return os.date('%I:%M:%S %p')
+  return os.date('%H:%M:%S')
 end
 
 --function to get file size of current buffer
@@ -90,13 +90,13 @@ local statusline = {
     '%#Keyword#[%{v:lua.get_nvim_version()}]%#StatusLine# ',
     '%#Keyword#%{v:lua.mode()}%#StatusLine# ',
     '%#Search# %{%v:lua.get_statusline_date()%} %#Statusline# ',
-    '%#Search# %{%v:lua.get_statusline_time()%} %#Statusline#',
     '%=',
     '[%{%v:lua.get_git_branch()%}]',
     ' %t',
     ' %r',
     '%=',
-    '[%{&filetype}]',
+    '%#Search# %{%v:lua.get_statusline_time()%} %#Statusline#',
+    ' [%{&filetype}]',
     '[%{%v:lua.file_size()%}] ',
     '%2p%% ',
     '%#Search# %04L:%04l:%02c %#StatusLine#'
