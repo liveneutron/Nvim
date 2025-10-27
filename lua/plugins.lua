@@ -61,8 +61,8 @@ return require('packer').startup(function(use)
         -- Options
         dashboard.section.buttons.val = {
         dashboard.button('n', 'New Journy', ':ene <BAR> startinsert<CR>'),
-        dashboard.button('p', 'Pilgrimage', ':FZF<CR>'),
-        dashboard.button('f', 'Fresh Air', ':PackerSync<CR>'),
+        dashboard.button('d', 'Destination', ':FZF<CR>'),
+        dashboard.button('r', 'Reload Realm', ':PackerSync<CR>'),
         dashboard.button('q', "Journy's End", ':qa<CR>'),
         }
 
