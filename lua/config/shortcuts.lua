@@ -29,3 +29,7 @@ vim.keymap.set("v", "<", "<gv")
 -- fzf
 vim.keymap.set("n", "<leader>f", ":FZF<CR>")
 vim.cmd([[let $FZF_DEFAULT_OPTS="--preview 'less {}' --preview-border sharp --no-scrollbar --reverse --border double --ghost=Search --input-border sharp --no-info --preview-label=PREVIEW"]])
+
+-- html boiler shortcut
+vim.api.nvim_set_keymap('n', 'ml', ':1read ~/.config/nvim/boiler/skeleton.html<CR>4jwf>a', { noremap = true, silent = true })
+
