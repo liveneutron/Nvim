@@ -85,7 +85,7 @@ local statusline = {
     ' %#Search#%{v:lua.mode()}%#StatusLine# ',
     '[%{%v:lua.get_git_branch()%}] ',
     '%t',
-    '%r',
+    ' %r',
     '%=',
     '%#Search# %{%v:lua.get_statusline_date()%} %#Statusline# ',
     '%#Search# %{%v:lua.get_statusline_time()%} %#Statusline#',
