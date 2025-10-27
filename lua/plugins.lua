@@ -74,6 +74,8 @@ return require('packer').startup(function(use)
         -- highlight the ASCII art
         dashboard.section.header.opts.hl = "Include"  -- "String" "Include", "Title", etc. String looks like piss for retrobox
 
+        -- Disable unnecessary autocmds
+        dashboard.opts.opts.noautocmd = true
         alpha.setup(dashboard.opts)
     end,
     }
