@@ -5,7 +5,7 @@ local augtogroup = vim.api.nvim_create_augroup("UserConfig", {})
 vim.api.nvim_create_autocmd("TextYankPost", {
     group = autogroup,
     callback = function()
-        vim.highlight.on_yank()
+        vim.hl.on_yank()
     end,
 })
 
